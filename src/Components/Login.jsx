@@ -1,11 +1,31 @@
 import { Link, useNavigate } from 'react-router-dom';
 import CommonNavbar from '../Shared/CommonNavbar';
 import axios from 'axios';
-import toast, { Toaster } from 'react-hot-toast';
 
 const Login = () => {
 
     const navigate = useNavigate();
+
+    //     const handleLogin = e => {
+    //         e.preventDefault();
+    //         const form = e.target
+    //         const email = form.email.value
+    //         const password = form.password.value
+    //         const user = { email, password };
+    //         // console.log(user);
+    //         axios.get(`http://localhost:8000/login/${email}`)
+    //             .then(data => {
+    //                 console.log(data.data.email, data.data.password);
+    //                 if (data.data.email!== email) {
+    //                    toast.error("password didn't match" );
+    //  }
+    //                 else {
+    //                     console.log(data.data.email, data.data.password);
+    //                     localStorage.setItem('User', JSON.stringify(data?.data.email));
+    //                     navigate("/dashboard");
+    //                 }
+    //             })
+    //     }
 
     const handleLogin = e => {
         e.preventDefault();
@@ -16,13 +36,17 @@ const Login = () => {
         console.log(user);
         axios.post("http://localhost:8000/login", user)
             .then(data => {
-                if (data?.data?.message !== 'password didn"t match') {
-                    console.log(data?.data);
-                    localStorage.setItem('loggedUser', JSON.stringify(data?.data));
-                    navigate("/dashboard");
+                console.log(data);
+                if (!data?.data?.login) {
+                    window.alert('please register before sign in');
                 }
                 else {
-                    window.alert('password not match');
+                    console.log(data?.data?.login);
+                    // setLoading(true);
+                    console.log(data?.data);
+                    localStorage.setItem('loggedUser', JSON.stringify(data?.data));
+                    navigate("/");
+                    window.location.reload();
                 }
             })
     }

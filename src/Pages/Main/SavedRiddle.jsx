@@ -1,13 +1,16 @@
+/* eslint-disable no-unused-vars */
 import RiddleCard from '../../Components/RiddleCard'
-import { MyAuthContext } from '../../Context/AuthContext'
 import CommonNavbar from '../../Shared/CommonNavbar'
-import { useEffect, useState, useContext } from 'react'
 import axios from 'axios'
 import { useQuery } from "@tanstack/react-query";
 
 const SavedRiddle = () => {
 
-    const { user, loading } = useContext(MyAuthContext);
+    const storedUser = localStorage.getItem('loggedUser');
+
+    const user = (JSON.parse(storedUser));
+    console.log(user?.email);
+
     console.log(user);
     const { data, refetch, isLoading } = useQuery({
         queryKey: ['save-riddle', user?.email],
@@ -16,7 +19,6 @@ const SavedRiddle = () => {
             return res.data
         },
     })
-
     console.log(data);
 
 
@@ -26,10 +28,10 @@ const SavedRiddle = () => {
             <section>
                 <h1 className='text-center lg:py-16 text-3xl font-bold'>ساقلىۋالغان تېپىشماقلىرىم</h1>
                 <div className='flex justify-center items-center'>
-                    <div className='py-10 grid grid-cols-1 lg:grid-cols-3 gap-10 max-w-7xl'>
+                    <div className='py-10 grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-7xl'>
                         {
                             data && data.map(item =>
-                                <RiddleCard item={item} save={'save'} />
+                                <RiddleCard key={item._id} item={item} save={'save'} />
                             )
                         }
                     </div>

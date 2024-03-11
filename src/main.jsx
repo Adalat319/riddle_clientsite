@@ -22,6 +22,7 @@ import OTP from './Components/OTPs.jsx';
 import PasswordSubmit from './Components/PasswordSubmit.jsx';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import AuthContext from './Context/AuthContext.jsx';
+import PrivateRoute from './Private/PrivateRoute.jsx';
 
 
 const router = createBrowserRouter([
@@ -66,25 +67,25 @@ const router = createBrowserRouter([
   },
   {
     path: '/dashboard',
-    element: <Nav />,
+    element: <PrivateRoute><Nav /></PrivateRoute>,
     children: [
       {
         path: '/dashboard',
-        element: <DasHome />
+        element: <PrivateRoute><DasHome /></PrivateRoute>
       },
       {
         path: '/dashboard/users',
-        element: <User />
+        element: <PrivateRoute><User /></PrivateRoute>
       },
       {
         path: '/dashboard/division',
-        element: <Division />
+        element: <PrivateRoute><Division /></PrivateRoute>
       },
       {
         path: '/dashboard/riddle',
-        element: <Riddles />
+        element: <PrivateRoute><Riddles /></PrivateRoute>
       },
-     
+
     ]
   },
 ])

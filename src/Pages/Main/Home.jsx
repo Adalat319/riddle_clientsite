@@ -9,6 +9,7 @@ import axios from 'axios'
 
 const Home = () => {
 
+    const [selectedCategory, setSelectedCategory] = useState('');
     const [data, setData] = useState([])
 
     useEffect(() => {
@@ -19,13 +20,16 @@ const Home = () => {
         getAllCat();
     }, [])
 
-    console.log(data);
+    const filteredData = data?.data?.filter(item =>
+        item.categoryTitle.toLowerCase().includes(selectedCategory.toLowerCase())
+    );
+
     return (
         <>
-            <Navbar />
-            <div className='max-w-7xl mx-auto pt-10 pb-20'>
+            <Navbar setSelectedCategory={setSelectedCategory} />
+            <div className='max-w-7xl mx-auto pt-10 pb-20' style={{ direction: 'rtl' }}>
                 <div className='grid grid-cols-1 lg:grid-cols-3 gap-5 items-center justify-center'>
-                    {data?.data?.map((category) => (
+                    {(filteredData && filteredData.length > 0 ? filteredData : data?.data)?.map((category) => (
                         <Card key={category._id} category={category} />
                     ))}
 

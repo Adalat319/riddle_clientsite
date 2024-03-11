@@ -8,7 +8,7 @@ function CommonNavbar() {
 
                 {/* logo text */}
                 <div className="mx-auto max-w-[1000px] space-y-4">
-                    <h1 className='text-[32px] font-bold text-center'>ئەسسالامۇئەلەيكۇم، ئۇيغۇر بالىلار تېپىشماقلىرى توربېتىگە خۇش كەلدىڭىز!</h1>
+                    <h1 className='text-[32px] font-bold text-center' style={{ direction: 'rtl', textAlign: 'right' }}>ئەسسالامۇئەلەيكۇم، ئۇيغۇر بالىلار تېپىشماقلىرى توربېتىگە خۇش كەلدىڭىز!</h1>
                 </div>
                 {/* logo */}
                 <Link to='/'>

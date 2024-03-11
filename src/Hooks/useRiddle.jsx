@@ -1,12 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from 'axios';
-import { useContext, useState } from 'react'
-import { MyAuthContext } from '../Context/AuthContext';
 
 const useRiddle = () => {
 
-    const { user, loading } = useContext(MyAuthContext);
+    const storedUser = localStorage.getItem('loggedUser');
+       
+        const user = (JSON.parse(storedUser));
 
+  console.log(user);
+   
     const { data, refetch, isLoading } = useQuery({
         queryKey: ['riddle', user?.email],
         queryFn: async () => {

@@ -27,12 +27,12 @@ const Riddle = () => {
         <>
             <CommonNavbar />
             <section className='p-4'>
-                <h1 className='text-center py-16 text-3xl font-bold'>ئۇيغۇرچە ھەرپلار، سانلار، چالغۇلار</h1>
+                <h1 className='text-center py-16 text-3xl font-bold'>{categoryTitle}</h1>
                 <div className='flex justify-center items-center'>
-                    <div className='py-10 grid grid-cols-1 lg:grid-cols-3 gap-10 max-w-7xl'>
+                    <div className='py-10 grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-7xl'>
                         {
                             filterRiddle && filterRiddle?.map(item =>
-                                <RiddleCard item={item} />
+                                <RiddleCard key={item._id} item={item} />
                             )
                         }
                     </div>
