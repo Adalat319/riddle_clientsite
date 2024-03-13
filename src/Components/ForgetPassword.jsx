@@ -11,7 +11,7 @@ const ForgetPassword = () => {
         const form = event.target
         const email = form.email.value
         console.log(email);
-        axios.post("http://localhost:8000/reset-password", { email })
+        axios.post("https://tilrawan-new-0fc4cea36279.herokuapp.com/reset-password", { email })
             .then(data => {
                 if (data) {
                     console.log(data?.data?.status);

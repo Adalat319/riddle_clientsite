@@ -12,7 +12,7 @@ const useRiddle = () => {
     const { data, refetch, isLoading } = useQuery({
         queryKey: ['riddle', user?.email],
         queryFn: async () => {
-            const res = await axios.get(`http://localhost:8000/riddle?email=${user?.email}`)
+            const res = await axios.get(`https://tilrawan-new-0fc4cea36279.herokuapp.com/riddle?email=${user?.email}`)
             return res.data
         },
     })

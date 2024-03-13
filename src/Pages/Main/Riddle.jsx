@@ -12,7 +12,7 @@ const Riddle = () => {
 
     useEffect(() => {
         const getAllCat = async () => {
-            const res = await axios.get('http://localhost:8000/allRiddle');
+            const res = await axios.get('https://tilrawan-new-0fc4cea36279.herokuapp.com/allRiddle');
             console.log(res.data);
             setData(res.data)
         }

@@ -13,7 +13,7 @@ const Login = () => {
     //         const password = form.password.value
     //         const user = { email, password };
     //         // console.log(user);
-    //         axios.get(`http://localhost:8000/login/${email}`)
+    //         axios.get(`https://tilrawan-new-0fc4cea36279.herokuapp.com/login/${email}`)
     //             .then(data => {
     //                 console.log(data.data.email, data.data.password);
     //                 if (data.data.email!== email) {
@@ -34,7 +34,7 @@ const Login = () => {
         const password = form.password.value
         const user = { name, password };
         console.log(user);
-        axios.post("http://localhost:8000/login", user)
+        axios.post("https://tilrawan-new-0fc4cea36279.herokuapp.com/login", user)
             .then(data => {
                 console.log(data);
                 if (!data?.data?.login) {

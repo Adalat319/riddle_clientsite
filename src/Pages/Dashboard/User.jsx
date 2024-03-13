@@ -10,7 +10,7 @@ const User = () => {
 
     useEffect(() => {
         const getAllusers = async () => {
-            const res = await axios.get('http://localhost:8000/users');
+            const res = await axios.get('https://tilrawan-new-0fc4cea36279.herokuapp.com/users');
             setUsers(res?.data);
         }
         getAllusers();

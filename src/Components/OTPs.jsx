@@ -10,7 +10,7 @@ const OTPs = () => {
         const form = event.target
         const otp = parseInt(form.otp.value)
         console.log(otp);
-        axios.post("http://localhost:8000/otp-verification", { otp })
+        axios.post("https://tilrawan-new-0fc4cea36279.herokuapp.com/otp-verification", { otp })
             .then(data => {
                 if (data?.data?.status === 200) {
                     console.log(data?.data?.status);

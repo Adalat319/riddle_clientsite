@@ -26,7 +26,7 @@ const RiddleCard = ({ item, save }) => {
                 title4: item.title4,
                 email: user?.email,
             }
-            const res = await axios.post(`http://localhost:8000/save-riddle`, addRiddle);
+            const res = await axios.post(`https://tilrawan-new-0fc4cea36279.herokuapp.com/save-riddle`, addRiddle);
             if (res.data.message === 'successfully added') {
                 Swal.fire({
                     position: "top-end",

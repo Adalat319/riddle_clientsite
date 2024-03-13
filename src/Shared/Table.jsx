@@ -22,7 +22,7 @@ const Table = ({ type, users }) => {
 
     useEffect(() => {
         const getAllCat = async () => {
-            const res = await axios.get('http://localhost:8000/allcategories');
+            const res = await axios.get('https://tilrawan-new-0fc4cea36279.herokuapp.com/allcategories');
             setAllCategories(res.data?.data)
         }
         getAllCat();
@@ -33,7 +33,7 @@ const Table = ({ type, users }) => {
     const [adminRiddle, setAdminriddle] = useState([])
     useEffect(() => {
         const getAllCat = async () => {
-            const res = await axios.get('http://localhost:8000/allRiddle');
+            const res = await axios.get('https://tilrawan-new-0fc4cea36279.herokuapp.com/allRiddle');
             console.log(res.data);
             setAdminriddle(res.data?.data)
         }
@@ -79,7 +79,7 @@ const Table = ({ type, users }) => {
             const riddleData = { title1, title2, title3, title4, category, answer, explanation, email: user.email }
             console.log(riddleData);
             try {
-                const response = await axios.post('http://localhost:8000/add/riddles', riddleData);
+                const response = await axios.post('https://tilrawan-new-0fc4cea36279.herokuapp.com/add/riddles', riddleData);
                 console.log(response.data);
                 if (response.data.message === "successful") {
                     refetch();
@@ -115,7 +115,7 @@ const Table = ({ type, users }) => {
                 formData.append('categoryTitle', categoryTitle);
                 formData.append('image', image);
                 formData.append('email', user?.email);
-                const response = await axios.post("http://localhost:8000/add/category", formData);
+                const response = await axios.post("https://tilrawan-new-0fc4cea36279.herokuapp.com/add/category", formData);
                 categoriesRefetch()
                 Swal.fire({
                     position: "top-end",
@@ -136,7 +136,7 @@ const Table = ({ type, users }) => {
     const handleDeleteRiddle = async (riddleId) => {
         try {
 
-            const response = await axios.delete(`http://localhost:8000/riddle/delete/${riddleId}`);
+            const response = await axios.delete(`https://tilrawan-new-0fc4cea36279.herokuapp.com/riddle/delete/${riddleId}`);
             console.log(response.data);
             refetch();
             Swal.fire({
@@ -155,7 +155,7 @@ const Table = ({ type, users }) => {
     const handleDeleteCategory = async (CategoryId) => {
         try {
 
-            const response = await axios.delete(`http://localhost:8000/category/delete/${CategoryId}`);
+            const response = await axios.delete(`https://tilrawan-new-0fc4cea36279.herokuapp.com/category/delete/${CategoryId}`);
             console.log(response.data);
             categoriesRefetch();
             Swal.fire({
@@ -198,7 +198,7 @@ const Table = ({ type, users }) => {
             };
 
             // Send PATCH request to update the riddle
-            const response = await axios.patch(`http://localhost:8000/update/riddles/${riddleId}`, updatedData);
+            const response = await axios.patch(`https://tilrawan-new-0fc4cea36279.herokuapp.com/update/riddles/${riddleId}`, updatedData);
 
             Swal.fire({
                 position: "top-end",
@@ -241,7 +241,7 @@ const Table = ({ type, users }) => {
             formData.set('image', image);
 
             // Make axios.patch request
-            const response = await axios.patch(`http://localhost:8000/update/category/${categoryId}`, formData);
+            const response = await axios.patch(`https://tilrawan-new-0fc4cea36279.herokuapp.com/update/category/${categoryId}`, formData);
 
             categoriesRefetch();
             Swal.fire({
@@ -263,7 +263,7 @@ const Table = ({ type, users }) => {
 
             console.log(id);
 
-            const response = await axios.delete(`http://localhost:8000/user/delete?id=${id}`);
+            const response = await axios.delete(`https://tilrawan-new-0fc4cea36279.herokuapp.com/user/delete?id=${id}`);
             const users = users.filter(user => user.id !== id);
             console.log(response.data);
             Swal.fire({

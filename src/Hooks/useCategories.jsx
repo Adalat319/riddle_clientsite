@@ -13,7 +13,7 @@ const useCategories = () => {
         queryKey: ['category', user?.email],
       
         queryFn: async () => {
-            const res = await axios.get(`http://localhost:8000/category?email=${user?.email}`)
+            const res = await axios.get(`https://tilrawan-new-0fc4cea36279.herokuapp.com/category?email=${user?.email}`)
             return res.data
         },
 

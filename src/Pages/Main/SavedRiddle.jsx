@@ -15,7 +15,7 @@ const SavedRiddle = () => {
     const { data, refetch, isLoading } = useQuery({
         queryKey: ['save-riddle', user?.email],
         queryFn: async () => {
-            const res = await axios.get(`http://localhost:8000/save-riddle?email=${user?.email}`)
+            const res = await axios.get(`https://tilrawan-new-0fc4cea36279.herokuapp.com/save-riddle?email=${user?.email}`)
             return res.data
         },
     })

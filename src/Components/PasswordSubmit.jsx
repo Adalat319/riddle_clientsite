@@ -12,7 +12,7 @@ const PasswordSubmit = () => {
         const otp = form.otp.value
         const password = form.password.value
         console.log(otp, password);
-        axios.post("http://localhost:8000/confirm-reset-password", { otp, password })
+        axios.post("https://tilrawan-new-0fc4cea36279.herokuapp.com/confirm-reset-password", { otp, password })
             .then(data => {
                 if (data) {
                     console.log(data?.data?.status);

@@ -14,7 +14,7 @@ const Home = () => {
 
     useEffect(() => {
         const getAllCat = async () => {
-            const res = await axios.get('http://localhost:8000/allcategories');
+            const res = await axios.get('https://tilrawan-new-0fc4cea36279.herokuapp.com/allcategories');
             setData(res.data)
         }
         getAllCat();
