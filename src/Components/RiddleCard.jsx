@@ -36,6 +36,7 @@ const RiddleCard = ({ item, save }) => {
                     timer: 1500
                 });
                 navigate('/saved');
+                window.location.reload(); // Reload the page after saving
             } else {
                 Swal.fire({
                     position: "top-end",
